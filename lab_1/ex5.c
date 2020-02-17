@@ -1,10 +1,10 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <math.h>
 void ex5() {
 	int n;
 	double tmpsin, tmpcos, result = 0;
-	printf("Введите n:");
+	printf("Р’РІРµРґРёС‚Рµ n:");
 	scanf("%d", &n);
 	for (int i = 1; i <= n; i++)
 	{

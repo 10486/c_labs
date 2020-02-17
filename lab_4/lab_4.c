@@ -1,39 +1,55 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include "znak.h"
 #include <malloc.h>
-#include<locale.h>
+#include <locale.h>
+#include <string.h>
+#include <Windows.h>
 #define MAX_SIZE 12
 void sort(Znak* arr, int len);
+Znak* find(Znak* arr, int len, char* second_name);
 int main() {
-	setlocale(LC_ALL, "");
+	SetConsoleOutputCP(1251);
+	SetConsoleCP(1251);
 	Znak* arr = malloc(sizeof(Znak) * MAX_SIZE);
 	int stop = 0;
 	int len = 0;
 	for (int i = 0; i < MAX_SIZE; i++)
 	{
 		len++;
-		printf("Введите имя:");
+		printf("Р’РІРµРґРёС‚Рµ РёРјСЏ:");
 		scanf("%s", arr[i].first_name);
-		printf("Введите фамилию:");
+		printf("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ:");
 		scanf("%s", arr[i].second_name);
-		printf("Введите знак зодиака:");
-		scanf("%s", arr[i].zodiac_sign);
-		printf("Введите дату рождения(дд мм гггг)");
-		scanf("%d %d %d", &(arr[i].birthday[0]), &(arr[i].birthday[1]), &(arr[i].birthday[2]));
-		printf("Для продолжения ввода введите '0', для окончания ввода '1'");
+		do {
+			printf("Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ СЂРѕР¶РґРµРЅРёСЏ(РґРґ РјРј РіРіРіРі)\n");
+			scanf("%d %d %d", &(arr[i].birthday[0]), &(arr[i].birthday[1]), &(arr[i].birthday[2]));
+		} while (!(arr[i].birthday[1] > 0 && arr[i].birthday[1] < 13 && arr[i].birthday[0]>0 && arr[i].birthday[0] < 31 && arr[i].birthday[2] > 0));
+		identify_sign(&arr[i]);
+		printf("Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РІРІРѕРґР° РІРІРµРґРёС‚Рµ '0', РґР»СЏ РѕРєРѕРЅС‡Р°РЅРёСЏ РІРІРѕРґР° '1' ");
 		scanf("%d", &stop);
 		if (stop)break;
 
 	}if ((arr = realloc(arr, sizeof(Znak) * (len + 1))) == NULL) {
-		printf("Возникла ошибка с выделением памяти");
+		printf("Р’РѕР·РЅРёРєР»Р° РѕС€РёР±РєР° СЃ РІС‹РґРµР»РµРЅРёРµРј РїР°РјСЏС‚Рё");
 		exit(1);
 	}
 	sort(arr, len);
-	for (int i = 0; i < len; i++)
-	{
-		print_student(&arr[i]);
+	char s_name[20];
+	printf("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ РёСЃРєРѕРјРѕРіРѕ С‡РµР»РѕРІРµРєР°: ");
+	scanf("%s", s_name);
+	Znak* tmp = find(arr, len, s_name);
+	if (tmp == NULL) {
+		printf("Р§РµР»РѕРІРµРєР° СЃ С‚Р°РєРѕР№ С„Р°РјРёР»РёРµР№ РЅРµС‚\n");
 	}
+	else {
+		print_person(tmp);
+	}
+	////Р’С‹РІРѕРґ РІСЃРµС… Р»СЋРґРµР№
+	//for (int i = 0; i < len; i++)
+	//{
+	//	print_person(&arr[i]);
+	//}
 	return 0;
 }
 void sort(Znak* arr, int len) {
@@ -52,4 +68,14 @@ void sort(Znak* arr, int len) {
 			break;
 		}
 	}
+}
+Znak* find(Znak* arr, int len, char* second_name) {
+	for (int i = 0; i < len; i++)
+	{
+		if (!strcmp(arr[i].second_name, second_name)) {
+			printf("%s\n",arr[i].second_name);
+			return &arr[i];
+		}
+	}
+	return NULL;
 }

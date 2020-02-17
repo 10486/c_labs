@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 void ex3() {
 	int sum;
 	for (int i = 10; i < 100; i++)

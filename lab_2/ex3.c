@@ -1,17 +1,17 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <malloc.h>
 void ex3() {
 	float counter = 0;
 	int n = 0, tmp = 0, negative = 0, flag = 0;
 	int* arr;
-	printf("Введите n:");
+	printf("Р’РІРµРґРёС‚Рµ n:");
 	scanf("%d", &n);
 	if((arr = malloc(sizeof(int) * n )) == NULL) {
-	printf("Выделение памяти окончилось неудачей");
+	printf("Р’С‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РѕРєРѕРЅС‡РёР»РѕСЃСЊ РЅРµСѓРґР°С‡РµР№");
 	return;
 	}
-	printf("Введите последовательность:\n");
+	printf("Р’РІРµРґРёС‚Рµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ:\n");
 	for (int i = 0; i < n; i++)
 	{
 		scanf("%d", &tmp);
@@ -20,10 +20,10 @@ void ex3() {
 		arr[i] = tmp;
 	}
 	if ((arr = realloc(arr, sizeof(int) * (n + (int)counter))) == NULL) {
-		printf("Выделение памяти окончилось неудачей");
+		printf("Р’С‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РѕРєРѕРЅС‡РёР»РѕСЃСЊ РЅРµСѓРґР°С‡РµР№");
 		return;
 	}
-	// Вставляем отрицательный элемент
+	// Р’СЃС‚Р°РІР»СЏРµРј РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚
 	for (int i = 0; i < n; i++)
 	{
 		if (arr[i] % 2 == 0 && flag) {
@@ -40,7 +40,7 @@ void ex3() {
 			flag = 1;
 		}
 	}
-	// Удаляем нули
+	// РЈРґР°Р»СЏРµРј РЅСѓР»Рё
 	for (int i = 0; i < n; i++)
 	{
 		if (arr[i] == 0) {

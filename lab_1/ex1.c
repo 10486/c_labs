@@ -1,12 +1,12 @@
-#define _CRT_SECURE_NO_WARNINGS
+ï»¿#define _CRT_SECURE_NO_WARNINGS
 #define _USE_MATH_DEFINES
 #include <stdio.h>
 #include <math.h>
 void ex1() {
 	double a, b, x, y, z;
-	printf("Ââåäèòå x,y,z: \n");
+	printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ x,y,z: \n");
 	scanf("%lf %lf %lf", &x, &y, &z);
-	if (x + M_PI_2 > 1 || x + M_PI_2 < -1) printf("Ââåäåíî íåâåðíîå çíà÷åíèå x\n");
+	if (x + M_PI_2 > 1 || x + M_PI_2 < -1) printf("Ð’Ð²ÐµÐ´ÐµÐ½Ð¾ Ð½ÐµÐ²ÐµÑ€Ð½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ x\n");
 	else
 	{
 		a = 2 * cos(x - M_PI_4) / .5 + pow(sin(y), 2) + acos(x + M_PI_2);

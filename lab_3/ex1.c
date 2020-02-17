@@ -1,14 +1,14 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <malloc.h>
 void ex1() {
 	FILE* file;
 	int size = 10, counter = 0, input_num = 0;
-	printf("Введите число:");
+	printf("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ:");
 	scanf("%d", &input_num);
 	int* nums = malloc(sizeof(int) * size);
 	if ((file = fopen("INPUT.TXT", "r")) == 0) {
-		printf("Возникла ошибка открытия файла");
+		printf("Р’РѕР·РЅРёРєР»Р° РѕС€РёР±РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°");
 		return;
 	}
 	while (fscanf(file, "%d", &nums[counter]) != EOF) {
@@ -17,14 +17,14 @@ void ex1() {
 		}
 		if (++counter >= size - 2) {
 			if ((nums = realloc(nums, (size *= 1.5) * sizeof(int))) == NULL) {
-				printf("Выделение памяти окончилось неудачей");
+				printf("Р’С‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РѕРєРѕРЅС‡РёР»РѕСЃСЊ РЅРµСѓРґР°С‡РµР№");
 				return;
 			}
 		}
 	}
 	fclose(file);
 	if ((file = fopen("OUTPUT.TXT","w")) == 0) {
-		printf("Возникла ошибка открытия файла");
+		printf("Р’РѕР·РЅРёРєР»Р° РѕС€РёР±РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°");
 		return;
 	}
 	for (int i = 0; i < counter; i++)

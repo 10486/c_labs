@@ -1,12 +1,17 @@
-#pragma once
+﻿#pragma once
+#define NAME_LENGTH 20
+#define SECOND_NAME_LENGTH 20
 typedef struct znak
 {
-	char first_name[20];
-	char second_name[20];
-	char zodiac_sign[10];
+	char first_name[NAME_LENGTH];
+	char second_name[SECOND_NAME_LENGTH];
+	char* zodiac_sign;
 	int birthday[3];
 }Znak;
-void print_student(Znak* this);
+void identify_sign(Znak* this);
+void print_person(Znak* this);
 int greater(Znak* first, Znak* second);
+int equal(Znak* first, Znak* second);
+int less(Znak* first, Znak* second);
 
 

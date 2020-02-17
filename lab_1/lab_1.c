@@ -1,11 +1,11 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <locale.h>
 #include "ex.h"
 int main() {
 	setlocale(LC_ALL, "");
 	int var;
-	printf("Введите номер задания:");
+	printf("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ Р·Р°РґР°РЅРёСЏ:");
 	scanf("%d", &var);
 	switch(var){
 	case 1:
@@ -27,7 +27,7 @@ int main() {
 		ex6();
 		break;
 	default:
-		printf("Задания с таким номером нет");
+		printf("Р—Р°РґР°РЅРёСЏ СЃ С‚Р°РєРёРј РЅРѕРјРµСЂРѕРј РЅРµС‚");
 	}
 	return 0;
 }

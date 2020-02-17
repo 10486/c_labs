@@ -1,9 +1,9 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 void ex4() {
 	const int MIN = -34, MAX = 90;
 	int tmp, result = 1, flag = 0;
-	printf("Введите последовательность:\n");
+	printf("Р’РІРµРґРёС‚Рµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ:\n");
 	while (1)
 	{
 		scanf("%d", &tmp);
