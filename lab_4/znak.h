@@ -8,8 +8,9 @@ typedef struct znak
 	char* zodiac_sign;
 	int birthday[3];
 }Znak;
+Znak* input_znak();
 void identify_sign(Znak* this);
-void print_person(Znak* this);
+char* znak_to_string(Znak* this);
 int greater(Znak* first, Znak* second);
 int equal(Znak* first, Znak* second);
 int less(Znak* first, Znak* second);

@@ -1,10 +1,14 @@
-﻿#include "znak.h"
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include "znak.h"
 #include <stdio.h>
+#include <malloc.h>
+#include <string.h>
 // Если находиться в функции identify_sign то выводит крякозябры 
-char signs_name[12][10] = { "Козерог", "Водолей", "Рыбы", "Овен", "Телец", "Близнецы", "Рак", "Лев", "Дева", "Весы", "Скорпион", "Стрелец", };
-void print_person(Znak* this) {
-	printf("\nИмя: %s\nФаимлия: %s\nЗнак зодиака: %s\nДата рождения: %02d.%02d.%04d\n", this->first_name, this->second_name, this->zodiac_sign, this->birthday[0], this->birthday[1], this->birthday[2]);
-	return;
+const char signs_name[12][10] = { "Козерог", "Водолей", "Рыбы", "Овен", "Телец", "Близнецы", "Рак", "Лев", "Дева", "Весы", "Скорпион", "Стрелец", };
+char* znak_to_string(Znak* this) {
+	char* tmp = malloc(sizeof(char) * 112);
+	sprintf(tmp, "\nИмя: %s\nФаимлия: %s\nЗнак зодиака: %s\nДата рождения: %02d.%02d.%04d\n", this->first_name, this->second_name, this->zodiac_sign, this->birthday[0], this->birthday[1], this->birthday[2]);
+	return tmp;
 }
 //true если первый больше второго(строго)
 int greater(Znak* first, Znak* second) {
@@ -62,4 +66,17 @@ void identify_sign(Znak* this) {
 	if (sign == -1)sign = 0;
 	this->zodiac_sign = signs_name[sign];
 	return;
+}
+Znak* input_znak() {
+	Znak* tmp = malloc(sizeof(Znak));
+	printf("Введите имя:");
+	scanf("%s", tmp->first_name);
+	printf("Введите фамилию:");
+	scanf("%s", tmp->second_name);
+	do {
+		printf("Введите дату рождения(дд мм гггг)\n");
+		scanf("%d %d %d", &(tmp->birthday[0]), &(tmp->birthday[1]), &(tmp->birthday[2]));
+	} while (!(tmp->birthday[1] > 0 && tmp->birthday[1] < 13 && tmp->birthday[0] > 0 && tmp->birthday[0] < 31 && tmp->birthday[2] > 0));
+	identify_sign(tmp);
+	return tmp;
 }
