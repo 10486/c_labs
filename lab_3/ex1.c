@@ -34,3 +34,4 @@ void ex1() {
 	fclose(file);
 	return;
 }
+int main() { ex1(); }

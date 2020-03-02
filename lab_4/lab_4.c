@@ -39,7 +39,7 @@ void array_variant() {
 	//Вывод всех людей
 	for (int i = 0; i < len; i++)
 	{
-		print_person(&arr[i]);
+		printf("%s", znak_to_string(&arr[i]));
 	}
 }
 void list_variant() {

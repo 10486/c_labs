@@ -42,3 +42,4 @@ void  ex2() {
 	free(arr);
 	return;
 }
+int main() { ex2(); }

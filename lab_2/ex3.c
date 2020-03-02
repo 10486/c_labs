@@ -59,3 +59,4 @@ void ex3() {
 	free(arr);
 	return;
 }
+int main() { ex3(); }

@@ -66,3 +66,4 @@ void ex4() {
 	free(result);
 	return;
 }
+int main() { ex4(); }

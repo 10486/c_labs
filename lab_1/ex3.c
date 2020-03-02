@@ -4,7 +4,8 @@ void ex3() {
 	for (int i = 10; i < 100; i++)
 	{
 		sum = i % 10 + i / 10;
-		if ((sum + 1) * sum == i)printf("%d\n", i);
+		if ((sum + 1) * sum == i) printf("%d\n", i);
 	}
 	return;
 }
+int main() { ex3(); }

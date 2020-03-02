@@ -5,6 +5,10 @@ void ex6() {
 	double eps, tmp, result = 0;
 	printf("Введите погрешность:");
 	scanf("%lf", &eps);
+	if (eps <= 0) {
+		printf("Введенно неверное значение");
+		return;
+	}
 	tmp = 1;
 	for (float i = 1; tmp < 0 ? tmp * -1 : tmp > eps; i++) {
 		result += tmp;
@@ -13,3 +17,4 @@ void ex6() {
 	printf("%lf", result);
 	return;
 }
+int main() { ex6(); }

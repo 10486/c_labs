@@ -9,10 +9,21 @@ void ex1() {
 	if (x + M_PI_2 > 1 || x + M_PI_2 < -1) printf("Введено неверное значение x\n");
 	else
 	{
-		a = 2 * cos(x - M_PI_4) / .5 + pow(sin(y), 2) + acos(x + M_PI_2);
-		printf("a = %lf\n", a);
+		if ((a = .5 + pow(sin(y), 2) + acos(x + M_PI_2)) == 0) {
+			printf("Делитель равен нулю\n");
+		}
+		else {
+			a = 2 * cos(x - M_PI_4) / a;
+			printf("a = %lf\n", a);
+		}
 	}
-	b = 1. + (pow(z, 2.) / 3. + pow(z, 2.) / 5.);
-	printf("b = %lf", b);
+	if ((b = 3. + pow(z, 2.) / 5.) == 0) {
+		printf("Делитель равен нулю\n");
+	}
+	else {
+		b = 1. + (pow(z, 2.) / b);
+		printf("b = %lf", b);
+	}
 	return;
 }
+int main() { ex1(); }

@@ -2,7 +2,8 @@
 #include <stdio.h>
 void ex4() {
 	const int MIN = -34, MAX = 90;
-	int tmp, result = 1, flag = 0;
+	long long result = 1;
+	int tmp, flag = 0;
 	printf("Введите последовательность:\n");
 	while (1)
 	{
@@ -17,3 +18,4 @@ void ex4() {
 	printf("%d", flag ? result : 0);
 	return;
 }
+int main() { ex4(); }

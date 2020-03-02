@@ -3,20 +3,20 @@
 #include <math.h>
 void ex5() {
 	int n;
-	double tmpsin, tmpcos, result = 0;
+	double tmpsin = 0, tmpcos = 0, result = 0;
 	printf("Введите n:");
 	scanf("%d", &n);
+	if (n <= 0) {
+		printf("Введенно не верное занчение n\n");
+		return;
+	}
 	for (int i = 1; i <= n; i++)
 	{
-		tmpsin = 0;
-		tmpcos = 0;
-		for (int j = 1; j <= i; j++)
-		{
-			tmpsin += sin(j);
-			tmpcos += cos(j);
-		}
+		tmpsin += sin(i);
+		tmpcos += cos(i);
 		result += tmpsin / tmpcos;
 	}
 	printf("%lf", result);
 	return;
 }
+int main() { ex5(); }
